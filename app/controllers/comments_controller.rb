@@ -5,11 +5,7 @@ class CommentsController < ApplicationController
         puts comment_params
         #redirect_to article_path(@article)
         respond_to do |format|
-        #   format.turbo_stream do 
-        #       render turbo_stream: [
-        #         turbo_stream.update('element_id',partial: )
-        #       ]
-        #   end
+          format.turbo_stream
           format.html{redirect_to article_path(@article)}
           format.js
         end
