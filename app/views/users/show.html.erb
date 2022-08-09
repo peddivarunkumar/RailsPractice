@@ -1,0 +1,11 @@
+<h1> <%= @user.name %> </h1>
+<ul>
+ <li>Date of birth: <%= @user.dob %></li>
+ <li>Image: <%= @user.photo %></li>
+</ul>
+<%= link_to "Edit User", edit_user_path(@user) %>
+<%= link_to "Delete User", user_path(@user), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+} %>
+<%= link_to "Show users", users_path%>

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :users
+
   get "sign_up", to: "registrations#new"
   post "sign_up", to:  "registrations#create"
 
@@ -15,4 +17,6 @@ Rails.application.routes.draw do
   
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
+
+  
 end

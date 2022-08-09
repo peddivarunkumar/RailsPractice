@@ -1,0 +1,10 @@
+<h1>Edit User</h1>
+<%= form_with model: Current.user do |form| %>
+ <label>Name: </label>
+ <p><%= form.text_field :name %></p>
+ <label>Date of birth</label>
+ <p><%= form.date_field :dob %></p>
+ <label>Photo</label>
+<p><%= form.text_field :photo %></p>
+<p><%= form.submit "Submit" %>
+<% end %>
