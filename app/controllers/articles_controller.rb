@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user
   def index
     @articles = Article.all
   end
@@ -44,5 +45,10 @@ class ArticlesController < ApplicationController
   private
      def article_params
        params.require(:article).permit(:title, :body)
+     end
+     def authenticate_user
+       if !Current.user
+          redirect_to login_path
+       end
      end
 end

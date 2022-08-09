@@ -1,0 +1,8 @@
+<h1>Login</h1>
+
+<%= form_with url: "/login" do |form| %>
+   <p><%= form.text_field :name, placeholder: true%></p>
+   <p><%= form.password_field :password, placeholder: true %></p>
+   <p><%= form.submit "Login"%></p>
+<% end %>
+<%= link_to "Create an Account?", sign_up_path %>
