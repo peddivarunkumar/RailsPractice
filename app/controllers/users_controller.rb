@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :is_Admin
+
   def index
     @users = User.all
   end
@@ -27,6 +29,14 @@ class UsersController < ApplicationController
   end
 
   private
+    def is_Admin
+       if session[:user_id] and Current.user.admin_user
+        
+       else
+        redirect_to articles_path
+       end
+    end 
+
     def user_params
       params.require(:user).permit(:name,:dob,:photo)
     end
