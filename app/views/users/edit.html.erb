@@ -2,9 +2,13 @@
 <%= form_with model: Current.user do |form| %>
  <label>Name: </label>
  <p><%= form.text_field :name %></p>
- <label>Date of birth</label>
+ <label>Date of birth:</label>
  <p><%= form.date_field :dob %></p>
- <label>Photo</label>
-<p><%= form.text_field :photo %></p>
+ <label>Photo:</label>
+<p><%= form.file_field :photo %></p>
+<label>Password:</label>
+<p><%= form.password_field :password %></p>
+<label>Password confirmation:</label>
+<p><%= form.password_field :password_confirmation %></p>
 <p><%= form.submit "Submit" %>
 <% end %>

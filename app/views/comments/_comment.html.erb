@@ -1,6 +1,6 @@
 <%= turbo_frame_tag dom_id(comment) do %>
 <p>
-  <strong>Commenter:</strong>
+  <%=image_tag comment.user.photo_url(:thumb) %>
   <%= comment.user.name %>
 </p>
 
@@ -8,6 +8,9 @@
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
+ 
+
+
 
 <p>
   <%= link_to "Destroy Comment", [comment.article, comment], data: {

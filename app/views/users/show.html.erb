@@ -1,7 +1,13 @@
 <h1> <%= @user.name %> </h1>
 <ul>
  <li>Date of birth: <%= @user.dob %></li>
- <li>Image: <%= @user.photo %></li>
+ <li>Image: 
+ <% if @user.photo.present? %>
+<%= image_tag @user.photo_url(:thumb) if @user.photo.present? %>
+<% else %>
+<%= image_tag "thumb_download.png" %>
+<% end %>
+</li>
 </ul>
 <%= link_to "Edit User", edit_user_path(@user) %>
 <%= link_to "Delete User", user_path(@user), data: {
@@ -9,3 +15,4 @@
     turbo_confirm: "Are you sure?"
 } %>
 <%= link_to "Show users", users_path%>
+

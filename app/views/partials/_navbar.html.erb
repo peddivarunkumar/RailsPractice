@@ -2,6 +2,7 @@
    <ul>
     <% if Current.user %>
      <li>Signedin as: <%= Current.user.name %></li> 
+     <li>ID: <%= Current.user.id %></li>
      <li>
         <%= link_to "Logout", logout_path, data: {turbo_method: :delete,
         turbo_confirm: "Are you sure?"
