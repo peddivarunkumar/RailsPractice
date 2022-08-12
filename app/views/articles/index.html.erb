@@ -1,4 +1,4 @@
-<h1>Articles</h1>
+<!-- <h1>Articles</h1>
 
 <ul>
   <% @articles.each do |article| %>
@@ -6,6 +6,28 @@
       <%= link_to article.title, article %>
     </li>
   <% end %>
-</ul>
+</ul> -->
 
-<%= link_to "New Article", new_article_path %>
+
+
+
+<table class="table table-striped">
+<thead>
+<tr>
+  <th scope="col">Articles</th>
+</tr>
+</thead>
+
+
+<% @articles.each do |article| %>
+  <tr>
+      <td><%= link_to article.title, article %></td>
+  </tr>
+<% end %> 
+
+ <tr>
+ <td><%= link_to "New Article", new_article_path %></td>
+ </tr>
+
+</table>
+

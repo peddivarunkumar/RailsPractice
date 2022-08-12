@@ -1,7 +1,30 @@
 <h1>Login</h1>
-<%= form_with url: "/login" do |form| %>
+<!-- <%= form_with url: "/login" do |form| %>
    <p><%= form.text_field :name, placeholder: true%></p>
    <p><%= form.password_field :password, placeholder: true %></p>
    <p><%= form.submit "Login"%></p>
-<% end %>
+<% end %> -->
+
+
+<%= form_with url: "/login" do |form| %>
+
+   
+<div class="mb-3">
+  <label class="form-label">Name</label>
+  <%= form.text_field :name, class: "form-control"%>
+</div>
+
+<div class="mb-3">
+  <label class="form-label">Password</label>
+  <%= form.password_field :password, class: "form-control"%>
+</div>
+
+<%= form.submit "Login", class: "btn btn-submit"%>
+
+  
+<% end %> 
+
 <%= link_to "Create an Account?", sign_up_path %>
+
+
+

@@ -1,8 +1,27 @@
 <h1>Users</h1>
-<% @users.each do |user| %>
+<!-- <% @users.each do |user| %>
    <p>
      <%= user.name %>
      <%= link_to "Show User", user %>
    </p>
-<% end %>
+<% end %> -->
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Users</th>
+      <th scope="col">View</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each_with_index do |user,index| %>
+    <tr>
+      <th scope="row"><%= index+1 %></th>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show User", user %></td>
+    </tr>
+ <% end %> 
+  </tbody>
+ 
+</table>

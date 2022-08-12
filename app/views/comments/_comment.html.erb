@@ -1,7 +1,12 @@
 <%= turbo_frame_tag dom_id(comment) do %>
 <p>
-  <%=image_tag comment.user.photo_url(:thumb) %>
+ <% if comment.user.photo.present? %>
+  <%=image_tag comment.user.photo_url(:thumb)%>
+<% else %>
+  <%= image_tag "thumb_download.png" %>
+<% end %>
   <%= comment.user.name %>
+ 
 </p>
 
 <p>
@@ -19,3 +24,5 @@
               } %>
 </p>
 <% end %>
+
+

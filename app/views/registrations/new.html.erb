@@ -18,7 +18,8 @@
     <p><%= message %></p>
   <% end %>
   <p><%= form.file_field :photo %></p>
-  
+  <span><%= form.check_box :admin_user%></span>
+  Admin User?
   <p><%= form.submit "Sign Up"%>
 <% end %>
 <%= link_to "Already have an account?", login_path %>
