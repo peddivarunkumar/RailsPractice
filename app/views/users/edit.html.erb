@@ -10,5 +10,7 @@
 <p><%= form.password_field :password %></p>
 <label>Password confirmation:</label>
 <p><%= form.password_field :password_confirmation %></p>
+<%= form.check_box :admin_user %>
+<label>Admin User</label>
 <p><%= form.submit "Submit" %>
 <% end %>
