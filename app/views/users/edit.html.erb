@@ -1,5 +1,5 @@
 <h1>Edit User</h1>
-<%= form_with model: Current.user do |form| %>
+<!-- <%= form_with model: Current.user do |form| %>
  <label>Name: </label>
  <p><%= form.text_field :name %></p>
  <label>Date of birth:</label>
@@ -13,4 +13,49 @@
 <%= form.check_box :admin_user %>
 <label>Admin User</label>
 <p><%= form.submit "Submit" %>
-<% end %>
+<% end %> -->
+
+<%= form_with model: @user do |form| %>
+ 
+    <div class="mb-3">
+    <label class="form-label">Name</label>
+    <%= form.text_field :name,class: "form-control"%>
+    <% @user.errors.full_messages_for(:name).each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+    </div>
+  
+    <div class="mb-3">
+    <label class="form-label">Date of Birth</label>
+      <%= form.date_field :dob,class: "form-control" %>
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Password confirmation</label>
+      <%= form.password_field :password_confirmation, class: "form-control"%>
+    
+     
+    <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+    </div>
+  
+    <div class="mb-3">
+    <label class="form-label">Profile photo</label>
+    <%= form.file_field :photo,class: "form-control" %>
+    </div>
+  
+    <div class="form-check mb-3">
+    <%= form.check_box :admin_user, class: "form-check-input"%>
+    <label class="form-check-label">Admin User?</label>
+    </div>
+  
+    <div class="mb-3">
+    <%= form.button "Submit" , type: "submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
