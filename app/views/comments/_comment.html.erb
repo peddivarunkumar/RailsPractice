@@ -1,4 +1,4 @@
-<%= turbo_frame_tag dom_id(comment) do %>
+<!-- <%= turbo_frame_tag dom_id(comment) do %>
 <p>
  <% if comment.user.photo.present? %>
   <%=image_tag comment.user.photo_url(:thumb)%>
@@ -23,6 +23,31 @@
                 turbo_confirm: "Are you sure?"
               } %>
 </p>
+<% end %> -->
+
+<%= turbo_frame_tag dom_id(comment) do %>
+<div class="card space">
+  <div class="card-header">
+  <% if comment.user.photo.present? %>
+  <%=image_tag comment.user.photo_url(:thumb)%>
+<% else %>
+  <%= image_tag "thumb_download.png" %>
+<% end %>
+  <%= comment.user.name %>
+ 
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= comment.body %></p>
+    <% if comment.user_id == Current.user.id %>
+    <%= link_to [comment.article, comment], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } do %>
+     <button class="btn btn-danger">Delete comment</button>
+    <% end %>
+    <% end %>
+  </div>
+</div> 
 <% end %>
 
 

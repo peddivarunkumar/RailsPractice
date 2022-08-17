@@ -1,5 +1,5 @@
-<div id="new_comment">
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+
+<!-- <%= form_with model: [ @article, @article.comments.build ] do |form| %>
     <p>
       <%= form.label :body%><br>
       <%= form.text_area :body %>
@@ -7,6 +7,18 @@
     <p>
       <%= form.submit %>
     </p>
-  <% end %>
+<% end %> -->
+
+<%= form_with model: [@article,@article.comments.build] do |form| %>
+  <div class = "mb-3">
+    <%= form.label :body,class: "form-label"%>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
+
+  <div class = "mb-3">
+     <%= form.button type: "submit", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+  
   
