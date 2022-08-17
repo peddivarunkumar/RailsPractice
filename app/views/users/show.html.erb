@@ -1,4 +1,4 @@
-<h1> <%= @user.name %> </h1>
+<!-- <h1> <%= @user.name %> </h1>
 <ul>
  <li>Date of birth: <%= @user.dob %></li>
  <li>Image: 
@@ -14,5 +14,30 @@
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
 } %>
-<%= link_to "Show users", users_path%>
+<%= link_to "Show users", users_path%> -->
+
+
+<div class="card" style="width: 18rem;">
+  <% if @user.photo.present? %>
+  <%= image_tag @user.photo_url alt="Card image cap"%>
+  <% else %>
+  <%= image_tag "no_image.png" %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.name %></h5>
+    <p class="card-text">Date of birth: <%= @user.dob %></p>
+    <%= link_to edit_user_path(@user) do %>
+     <button class="btn btn-info mb-3" >Edit User</button>
+    <% end %>
+<%= link_to user_path(@user), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+} do %>
+ <button class="btn btn-info mb-3">Delete User</button>
+<% end %>
+<%= link_to users_path do %>
+ <button class="btn btn-info mb-3">Show users</button>
+<% end %>
+  </div>
+</div>
 
