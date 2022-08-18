@@ -22,12 +22,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+   
     @article = Article.find(params[:id])
+    isCurrentUserAccessing
   end
 
   def update
     @article = Article.find(params[:id])
-
+    isCurrentUserAccessing
     if @article.update(article_params)
       redirect_to @article
     else
@@ -37,6 +39,7 @@ class ArticlesController < ApplicationController
  
   def destroy
     @article = Article.find(params[:id])
+    isCurrentUserAccessing
     @article.destroy
 
     redirect_to root_path, status: :see_other
@@ -50,5 +53,11 @@ class ArticlesController < ApplicationController
        if !Current.user
           redirect_to login_path
        end
+     end
+     def isCurrentUserAccessing
+       if !(Current.user.id == @article.user.id)
+          redirect_to root_path
+       end
+       
      end
 end
