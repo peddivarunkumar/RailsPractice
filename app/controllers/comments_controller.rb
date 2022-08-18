@@ -15,11 +15,17 @@ class CommentsController < ApplicationController
     def destroy
         @article = Article.find(params[:article_id])
         @comment = @article.comments.find(params[:id])
+        isCurrentUserAccessing
         @comment.destroy
         redirect_to article_path(@article),status: 303
     end
     private
     def comment_params
         params.require(:comment).permit(:body)
+    end
+    def isCurrentUserAccessing
+      if !(Current.User == @comment.user.id)
+         redirect_to root_path
+      end
     end
 end
