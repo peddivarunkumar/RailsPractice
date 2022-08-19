@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :checkIfSignedIn , only: [:new]
   def new 
     @user = User.new
   end
@@ -18,6 +19,11 @@ class SessionsController < ApplicationController
   end
 
   private
+  def checkIfSignedIn
+    if session[:user_id]
+      redirect_to root_path
+    end
+  end
   def login_params
     params.require(:user).permit(:name,:password,:password_confirmation)
   end
