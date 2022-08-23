@@ -7,7 +7,7 @@
       <% end %>
     </div>
   
-    <div>
+    <div class="mb-3">
       <%= form.label :body,class: "form-label" %><br>
       <%= form.text_area :body,rows: 3,class: "form-control"%><br>
       <% article.errors.full_messages_for(:body).each do |message| %>
@@ -18,7 +18,7 @@
     <div>
       <%= form.submit %>
     </div>
-  <% end %>
+<% end %>
 
 
 <!-- <div class="mb-3">
