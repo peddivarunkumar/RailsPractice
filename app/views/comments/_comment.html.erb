@@ -3,7 +3,7 @@
 <%= turbo_frame_tag dom_id(comment) do %>
 <div class="card space">
   <div class="card-header">
-  <% if comment.user.picture.name.present? %>
+  <% if comment.user.picture && comment.user.picture.name.present? %>
   <%=image_tag comment.user.picture.name_url(:thumb)%>
 <% else %>
   <%= image_tag "thumb_download.png" %>
