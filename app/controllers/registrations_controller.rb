@@ -5,7 +5,8 @@ class RegistrationsController < ApplicationController
   end
   def create
     @user = User.new(user_params)
-    if @user.save
+    
+    if @user.save!
        session[:user_id] = @user.id
        redirect_to root_path
     else
@@ -21,6 +22,6 @@ class RegistrationsController < ApplicationController
     end
   end
   def user_params
-   params.require(:user).permit(:name,:password,:password_confirmation,:dob,:photo,:admin_user)
+   params.require(:user).permit(:name,:password,:password_confirmation,:dob,:photo,:admin_user,:picture_attributes => {})
  end
 end
