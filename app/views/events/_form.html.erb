@@ -20,6 +20,13 @@
        <%= form.label :end_date, class: "form-label" %><br>
        <%= form.date_field :end_date, class: "form-control" %>
     </div>
+
+    <div class="mb-3">
+    <label class="form-label">Profile photo</label>
+    <%=form.fields_for :picture_attributes do |picture_f|%>
+      <%= picture_f.file_field :name, class: "form-control" %>
+   <%end%>
+   </div>
   
     <div>
       <%= form.submit %>
