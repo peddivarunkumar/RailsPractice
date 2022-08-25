@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :events
 
   post "/book", to: "bookings#create"
+
+  get "/show_user_events", to: "events#show_user_events"
 end

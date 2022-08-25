@@ -42,6 +42,13 @@
             <li><%= link_to "Edit Profile", edit_user_path(Current.user) , class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
 
+            <li><%= link_to "Events", events_path , class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+
+            <li><%= link_to "My Events", show_user_events_path, class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            
+
             <li><%= link_to "Logout", logout_path, data: {turbo_method: :delete,
             turbo_confirm: "Are you sure?"},class: "dropdown-item"
             %></li>

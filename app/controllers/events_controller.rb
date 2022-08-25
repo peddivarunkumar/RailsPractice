@@ -16,7 +16,9 @@ class EventsController < ApplicationController
        end
     end
 
-
+   def show_user_events
+      @events = Current.user.events
+   end
 
     private
       def event_params

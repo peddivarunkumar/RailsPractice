@@ -1,0 +1,12 @@
+<h1>My Events</h1>
+
+<% @events.each do |event| %>
+    <% if event.picture && event.picture.name.present? %>
+       <%= image_tag event.picture.name_url(:thumb) %>
+    <% end %>
+    <p><%= event.name %></p>
+    <p><%= event.description %></p>
+    <p><%= event.start_date %></p>
+    <p><%= event.end_date %></p>
+    <hr>
+ <% end %>
