@@ -32,3 +32,6 @@
 
 #Ignore byebug history
 .byebug_history
+
+#Ignore photos
+/public/uploads
