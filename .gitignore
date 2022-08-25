@@ -31,4 +31,4 @@
 /config/master.key
 
 #Ignore byebug history
-.byebug
+.byebug_history
