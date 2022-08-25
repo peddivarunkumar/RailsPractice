@@ -13,4 +13,4 @@
    <hr>
 <% end %>
 
-<%= link_to "New Event", new_event_path %>
+<%= link_to "New Event", new_event_path if Current.user.admin_user%>
